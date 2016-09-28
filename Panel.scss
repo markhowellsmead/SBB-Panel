@@ -1,0 +1,301 @@
+$panel-vertical-spacing: (
+    small: 1rem,
+    medium: 2rem,
+    medium_large: 3rem
+);
+
+$panel-max-width: (
+    small: 188px,
+    smartphone_small: 244px,
+    smartphone_wide: 214px,
+    medium: 400px,
+    large: 464px
+) !default;
+
+$panel-proportions: (
+    small: 72%,
+    smartphone_wide: 56%,
+    medium: 100%,
+    morethanmedium: 100%,
+    morethanmedium_large: 48%,
+    medium_large: 48%,
+    large: 46%,
+    xlarge: 35%
+);
+
+//////////////////////////////////////////////////
+  
+.mod.sbbpanel {
+
+    height: 0;
+    background-color: #767676;
+    position: relative;
+
+    @each $breakpoint, $proportion in $panel-proportions {
+        @include breakpoint($breakpoint){
+            padding-bottom: $proportion;
+        }
+    }
+
+    img {
+        width: auto;
+        max-width: none;
+        height: 100%;
+        position: absolute;
+    }
+
+    .figure {
+        @include flood();
+        margin: 0;
+        background: no-repeat center/cover;
+    }
+    
+    .panel-head {
+        position: relative;
+        @each $breakpoint, $spacing in $panel-vertical-spacing {
+            @include breakpoint($breakpoint){
+                top: $spacing;
+            }
+        }
+    }
+    
+    .panel-title, .panel-subtitle {
+        color: #fff;
+    }
+
+    .panel-inner {
+        width: 100%;
+        min-width: 188px;
+        max-width: 188px;
+        overflow: hidden;
+        position: relative;
+    
+        @each $breakpoint, $max-width in $panel-max-width {
+            @include breakpoint($breakpoint){
+                max-width: $max-width;
+            }
+        }
+
+    }
+
+    .svg {
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    .svg-wrap {
+        width: 100%;
+        height: 0;
+        padding-bottom: 18.045112781955%;
+        position: relative;
+    }
+
+    .panel-content {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 66.428571428571%;
+        box-sizing: initial;
+    }
+
+    .polygon, .text {
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+    }
+
+    .text {
+        box-sizing: border-box;
+        color: #fff;
+        padding: 0 8%;
+        line-height: 1.25;
+        width: 100%;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+
+    .colour-box {
+        mix-blend-mode: multiply;
+        background-color: #EB0000;
+    }
+
+    .colour-polygon {
+        mix-blend-mode: multiply;
+        fill: #EB0000;
+    }
+
+    .whitemask-box {
+        opacity: 0.7;
+        background-color: #fff;
+    }
+
+    .whitemask-polygon {
+        opacity: 0.7;
+        fill: #fff;
+    }
+
+    .panel-title {
+        font-size: rem-calc(20px);
+        line-height: 1.2;
+        margin-top: .5em;
+        margin-bottom: 1rem;
+    }
+
+    .panel-subtitle {
+        font-size: 1rem;
+        font-weight: 400;
+        display: none;
+    }
+
+    @media screen and (min-width: 375px){
+        .panel-title {
+            font-size: rem-calc(25px);
+        }
+    }
+
+    @media screen and (min-width: 480px){
+        .panel-title {
+            font-size: rem-calc(24px);
+        }
+        .panel-subtitle {
+            display: block;
+        }
+    }
+
+    @media screen and (min-width: 667px){
+        .panel-title {
+            font-size: rem-calc(25px);
+        }
+        .panel-subtitle {
+            font-size: rem-calc(12px);
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        .panel-title {
+            font-size: rem-calc(32px);
+            margin-bottom: 1.5rem;
+        }
+        .panel-subtitle {
+            font-size: rem-calc(18px);
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        .panel-title {
+            font-size: rem-calc(36px);
+        }
+        .panel-subtitle {
+            font-size: rem-calc(24px);
+        }
+    }
+
+    @media screen and (min-width: 1440px){
+        .panel-title {
+            font-size: rem-calc(48px);
+        }
+    }
+
+}
+
+html {
+    &.background-blend-mode-no, &.mix-blend-mode-no {
+        .mod.sbbpanel {
+            .colour-box {
+                background-color: rgba(250,0,0,.65);
+                mix-blend-mode: normal;
+            }
+            .colour-polygon {
+                fill: rgba(250,0,0,.65);
+                mix-blend-mode: normal;
+            }
+            .whitemask-box {
+                background-color: rgba(50,50,50,.5);
+            }
+            .whitemask-polygon {
+                fill: rgba(50,50,50,.5);
+            }
+            .panel-content {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.mod.sbbpanel {
+    .text.small {
+        @include breakpoint(medium) {
+            display: none;
+        }
+    }
+    .text.medium {
+        display: none;
+        @include breakpoint(medium) {
+            display: block;
+        }
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+    .text.large {
+        display: none;
+        @include breakpoint(large) {
+            display: block;
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+.mod.sbbpanel {
+    &.position-tl img {
+        top: 0; left: 0;
+    }
+    &.position-tc img {
+        top: 0; 
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &.position-tr img {
+        top: 0; right: 0;
+    }
+    &.position-cl img {
+        top: 50%; 
+        left: 0;
+        transform: translateY(-50%);
+    }
+    &.position-c img {
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    &.position-cr img {
+        top: 50%; 
+        right: 0;
+        transform: translateY(-50%);
+    }
+    &.position-bl img {
+        bottom: 0; 
+        left: 0;
+    }
+    &.position-bc img {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &.position-br img {
+        bottom: 0; 
+        right: 0;
+    }
+}
+
+//////////////////////////////////////////////////
+  
+@media print {
+    .mod.sbbpanel {
+        .image {
+            display: none;
+        }
+    }
+}

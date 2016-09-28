@@ -1,0 +1,79 @@
+<!--
+    
+This is the basis code for the SBB Panel element. The element should look the same in all projects and in all 
+implementations; from the colour to the text sizes.
+
+It can be used on its own, or via a CMS like WordPress or TYPO3.
+
+- CSS should be generated from the Sass file Panel.scss.
+- Add the JavaScript from the file Panel.js.
+- The figure element contains 7 individual images: one for each appropriate screen resolution break point.
+
+Last update: 21st July 2016 / https://github.com/mhmli/SBB-Panel
+
+-->
+
+<div class="mod fce sbbpanel">
+
+    <!--
+    Image sizes: example code for TYPO3.
+    <v:variable.set name="phone_small"  value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '375c', height: '600')}" />
+    <v:variable.set name="phone_large"  value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '767c', height: '903')}" />
+    <v:variable.set name="ipad"         value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '768c', height: '904')}" />
+    <v:variable.set name="ipadlarge"    value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '1024c', height: '599')}" />
+    <v:variable.set name="laptop"       value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '1440', height: '754c')}" />
+    <v:variable.set name="desktop"      value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '1920', height: '1005c')}" />
+    <v:variable.set name="xlarge"       value="{f:uri.image(treatIdAsReference: 'TRUE', image:'{image}', width: '2560', height: '1340c')}" />
+    -->
+
+    <figure class="figure">
+        <picture>
+            <source srcset="photo_size1.jpg" media="(max-width:666px)">
+            <source srcset="photo_size1.jpg" media="(max-width:767px)">
+            <source srcset="photo_size3.jpg" media="(max-width:768px)">
+            <source srcset="photo_size4.jpg" media="(max-width:1024px)">
+            <source srcset="photo_size5.jpg" media="(max-width:1440px)">
+            <source srcset="photo_size6.jpg" media="(max-width:2559px)">
+            <source srcset="photo_size7.jpg" media="(max-width:4000px)">
+            <img class="image" alt="" srcset="fileadmin/_processed_/csm_sbb_1u4a3201_2_39f596dd29.jpg 375w, photo_size2.jpg 767w, photo_size3.jpg 768w, photo_size4.jpg 1024w, photo_size5.jpg 1440w, photo_size6.jpg 1920w, photo_size7.jpg 2560w">
+        </picture>
+    </figure>
+
+    <header class="panel-head">
+        <div class="panel-inner">
+            <div class="svg-wrap">
+                <svg class="svg" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 48" preserveAspectRatio="xMidYMin slice">
+                    <polygon points="0,0 0,48 266,48 0,0" class="whitemask-polygon"/>
+                    <polygon points="0,0 0,48 266,48 0,0" class="colour-polygon"/>
+                </svg>
+            </div>
+            <div class="panel-content">
+                <div class="polygon whitemask-box">&nbsp;</div>
+                <div class="polygon colour-box text">&nbsp;</div>
+
+                <div class="text small">
+                    <p class="panel-title">TITLE</p>
+                    <p class="panel-subtitle">SUBTITLE</p>
+                </div>
+
+                <div class="text medium">
+                    <p class="panel-title">TITLE</p>
+                    <p class="panel-subtitle">SUBTITLE</p>
+                </div>
+
+                <div class="text large">
+                    <h1 class="panel-title">TITLE</h1>
+                    <p class="panel-subtitle">SUBTITLE</p>
+                </div>
+
+            </div>
+            <div class="svg-wrap">
+                <svg class="svg" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265 49" preserveAspectRatio="xMidYMin slice">
+                    <polygon points="0,0 0,48 266,0" class="whitemask-polygon"/>
+                    <polygon points="0,0 0,48 266,0" class="colour-polygon"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+</div>
