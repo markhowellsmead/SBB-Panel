@@ -5,7 +5,7 @@ This is the basis code for the SBB Panel element, as described [here](https://pe
 
 This example code can be used on its own, or via a CMS like WordPress or TYPO3.
 
-* CSS should be generated from the Sass file Panel.scss. Make sure that [Autoprefixer](https://github.com/postcss/autoprefixer) is used during compilation, to ensure cross-browser compatability.
+* CSS should be generated from the Sass file Panel.scss. Make sure that [Autoprefixer](https://github.com/postcss/autoprefixer) is used during compilation, to ensure cross-browser compatibility.
 * Add the JavaScript from the file Panel.js.
 * The figure element contains 7 individual images: one for each appropriate screen resolution break point.
 
