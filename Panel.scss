@@ -52,6 +52,10 @@
         }
     }
 
+    .panel-print {
+        display: none;
+    }
+
     .panel-title, .panel-subtitle {
         color: #fff;
     }
@@ -293,8 +297,13 @@ html {
 
 @media print {
     .mod.sbbpanel {
-        .image {
+        height: auto;
+        padding-bottom: 0;
+        .figure, .panel-inner {
             display: none;
+        }
+        .panel-print {
+            display: block;
         }
     }
 }
