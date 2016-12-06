@@ -1,39 +1,27 @@
-$panel-vertical-spacing: (
-    small: 1rem,
-    medium: 2rem,
-    medium_large: 3rem
-);
-
-$panel-max-width: (
-    small: 188px,
-    smartphone_small: 244px,
-    medium: 400px,
-    large: 464px
-) !default;
-
-$panel-proportions: (
-    small: 72%,
-    smartphone_wide: 56%,
-    medium: 100%,
-    morethanmedium: 100%,
-    morethanmedium_large: 48%,
-    medium_large: 48%,
-    large: 46%,
-    xlarge: 35%
-);
-
-//////////////////////////////////////////////////
-
 .mod.sbbpanel {
 
     height: 0;
     background-color: #767676;
     position: relative;
+    padding-bottom: 72%;
 
-    @each $breakpoint, $proportion in $panel-proportions {
-        @include breakpoint($breakpoint){
-            padding-bottom: $proportion;
-        }
+    @media screen and (min-width: 41.6875rem){
+        padding-bottom: 56%;
+    }
+    @media screen and (min-width: 48rem){
+        padding-bottom: 100%;
+    }
+    @media screen and (min-width: 48.0625rem){
+        padding-bottom: 100%;
+    }
+    @media screen and (min-width: 64rem){
+        padding-bottom: 48%;
+    }
+    @media screen and (min-width: 80rem){
+        padding-bottom: 46%;
+    }
+    @media screen and (min-width: 100rem){
+        padding-bottom: 35%;
     }
 
     img {
@@ -44,17 +32,23 @@ $panel-proportions: (
     }
 
     .figure {
-        @include flood();
+        position: absolute;
+        z-index: 0;
+        top: 0; left: 0;
+        bottom: 0; right: 0;
+        width: 100%; height: 100%;
         margin: 0;
         background: no-repeat center/cover;
     }
 
     .panel-head {
         position: relative;
-        @each $breakpoint, $spacing in $panel-vertical-spacing {
-            @include breakpoint($breakpoint){
-                top: $spacing;
-            }
+        top: 1rem;
+        @media screen and (min-width: 48rem){
+            top: 2rem;
+        }
+        @media screen and (min-width: 64rem){
+            top: 3rem;
         }
     }
 
@@ -64,17 +58,20 @@ $panel-proportions: (
 
     .panel-inner {
         width: 100%;
-        min-width: 188px;
-        max-width: 188px;
+        min-width: 11.75rem;
+        max-width: 11.75rem;
         overflow: hidden;
         position: relative;
 
-        @each $breakpoint, $max-width in $panel-max-width {
-            @include breakpoint($breakpoint){
-                max-width: $max-width;
-            }
+        @media screen and (min-width: 23.4375rem){
+            max-width: 15.25rem;
         }
-
+        @media screen and (min-width: 48rem){
+            max-width: 25rem;
+        }
+        @media screen and (min-width: 80rem){
+            max-width: 29rem;
+        }
     }
 
     .svg {
@@ -151,19 +148,19 @@ $panel-proportions: (
         display: none;
     }
 
-    @media screen and (min-width: 375px){
+    @media screen and (min-width: 23.4375rem){
         .panel-title {
             font-size: 24/16 * 1rem;
         }
     }
 
-    @media screen and (min-width: 480px){
+    @media screen and (min-width: 30rem){
         .panel-subtitle {
             display: block;
         }
     }
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 48rem){
         .panel-title {
             font-size: 2rem;
             margin-bottom: 1.5rem;
@@ -173,7 +170,7 @@ $panel-proportions: (
         }
     }
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 64rem){
         .panel-title {
             font-size: 36/16 * 1rem;
         }
@@ -182,7 +179,7 @@ $panel-proportions: (
         }
     }
 
-    @media screen and (min-width: 1440px){
+    @media screen and (min-width: 90rem){
         .panel-title {
             font-size: 44/16 * 1rem;
         }
